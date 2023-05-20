@@ -1,0 +1,51 @@
+@import "@/assets/styles/variables";
+
+.limit_char_container {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  color: inherit;
+
+  &.noMax {
+    width: fit-content;
+  }
+
+  .full_word_show {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.2rem;
+    top: 0;
+    left: 0;
+    transform: translate(0, calc(-100% - 2px));
+    width: max-content;
+    height: max-content;
+    max-width: 60rem;
+    padding: 0px 5px;
+    border: 1px solid $neutral-200;
+    border-radius: 3px;
+    background: #ffff;
+    color: inherit;
+    box-shadow: 0 0 3px rgba(151, 151, 151, 0.1);
+    opacity: 0;
+    transition: 0.3s all ease;
+  }
+}
+
+.limit_char_hover {
+  &:hover .full_word_show {
+    opacity: 1;
+    color: $primary-bg;
+    z-index: 2000;
+
+    @media screen and (max-width: $break-point-mobile) {
+      display: none;
+    }
+  }
+}
+
+.overflow_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}

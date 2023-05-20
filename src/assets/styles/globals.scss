@@ -1,0 +1,71 @@
+@import "./variables";
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+
+  /* Take rems according to this font 1rem = 10px */
+  @media screen and (max-width: 2300px) {
+    font-size: 70%;
+  }
+
+  @media screen and (max-width: 2300px) and (min-width: 620px) {
+    font-size: 62.5%;
+  }
+
+  @media screen and (max-width: 620px) {
+    font-size: 57%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background: $primary-bg;
+  color: $neutral-600;
+  min-height: 100vh;
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    width: 7.5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $neutral-500;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #495a62;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.App {
+  min-height: calc(100vh - $navbar-height);
+  display: flex;
+  flex-direction: column;
+}

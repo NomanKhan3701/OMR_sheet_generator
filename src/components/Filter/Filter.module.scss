@@ -1,0 +1,12 @@
+@import "@/assets/styles/variables";
+
+.Filter {
+  width: 100%;
+  display: flex;
+
+  .form {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+  }
+}

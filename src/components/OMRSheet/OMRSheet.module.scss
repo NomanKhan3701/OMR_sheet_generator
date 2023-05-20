@@ -1,0 +1,93 @@
+@import "@/assets/styles/variables";
+
+.OMR_sheet {
+  --question-height: 2.6rem;
+  --extra-padding: 0.8rem;
+  --font-option: 1.1rem;
+  --font-question: 1.2rem;
+
+  width: max-content;
+  //   border: 2px solid red;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    // border-bottom: 2px solid $primary-pink;
+  }
+
+  .test_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 2rem;
+
+    .section {
+      border: 2px solid $primary-pink;
+
+      .question {
+        display: flex;
+        font-weight: 500;
+
+        &.border_bottom {
+          border-bottom: 2px solid $primary-pink;
+        }
+
+        .question_no {
+          display: grid;
+          place-items: center;
+          width: 2.5rem;
+          height: 2rem;
+          border-right: 2px solid $primary-pink;
+          height: var(--question-height);
+          font-size: var(--font-question);
+
+          &.pad_bottom {
+            height: calc(var(--question-height) + var(--extra-padding));
+            padding-bottom: var(--extra-padding);
+          }
+
+          &.pad_top {
+            height: calc(var(--question-height) + var(--extra-padding));
+            padding-top: var(--extra-padding);
+          }
+        }
+
+        .options {
+          display: flex;
+          align-items: center;
+          padding: 0 1rem;
+          gap: 1rem;
+          height: var(--question-height);
+          color: $primary-pink;
+
+          &.pad_bottom {
+            height: calc(var(--question-height) + var(--extra-padding));
+            padding-bottom: var(--extra-padding);
+          }
+
+          &.pad_top {
+            height: calc(var(--question-height) + var(--extra-padding));
+            padding-top: var(--extra-padding);
+          }
+
+          .option {
+            width: 1.7rem;
+            height: 1.7rem;
+            border: 2px solid $primary-pink;
+            font-size: var(--font-option);
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+  }
+}
