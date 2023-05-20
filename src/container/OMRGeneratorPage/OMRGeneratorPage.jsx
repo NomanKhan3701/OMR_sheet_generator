@@ -7,8 +7,8 @@ import OMRSheet from '@/components/OMRSheet/OMRSheet';
 
 const OMRGeneratorPage = () => {
     const [filters, setFilters] = useState({
-        totalQuestion: 38,
-        totalQuestionInOneColumn: 20,
+        totalQuestion: 120,
+        totalQuestionInOneColumn: 30,
         totalQuestionInOneSection: 5,
     })
     const OMRref = useRef(null);
