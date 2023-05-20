@@ -93,13 +93,13 @@ const OMRSheet = ({ filters, OMRref }) => {
             <div className={styles.footer}>
                 <div className={styles.signature}>
                     <div className={styles.label}>
-                        Candidate's Signature
+                        {"Candidate's Signature"}
                     </div>
                     <div className={styles.input}></div>
                 </div>
                 <div className={styles.signature}>
                     <div className={styles.label}>
-                        Invigilator's Signature
+                        {"Invigilator's Signature"}
                     </div>
                     <div className={styles.input}></div>
                 </div>
