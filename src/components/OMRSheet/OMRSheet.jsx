@@ -5,14 +5,15 @@ import styles from './OMRSheet.module.scss';
 
 const OMRSheet = ({ filters }) => {
     const [questions, setQuestions] = useState([])
+    const totalQnaInOneColumn = parseInt(filters.totalQuestionInOneColumn) || 1
 
     useEffect(() => {
         if (filters.totalQuestion) {
-            setQuestions([])
-            for (let i = 1; i <= filters.totalQuestion; i = i + filters.totalQuestionInOneColumn) {
-                const maxIdx = i + filters.totalQuestionInOneColumn - 1 > filters.totalQuestion ? filters.totalQuestion - i : filters.totalQuestionInOneColumn;
+            let newQuestions = [];
+            for (let i = 1; i <= filters.totalQuestion; i = i + totalQnaInOneColumn) {
+                const maxIdx = i + totalQnaInOneColumn - 1 > filters.totalQuestion ? parseInt(filters.totalQuestion - i) : totalQnaInOneColumn;
 
-                setQuestions((prev) => [...prev, [...Array(filters.totalQuestionInOneColumn).keys()].map((item) => {
+                newQuestions.push([...Array(totalQnaInOneColumn).keys()].map((item) => {
                     if (item > maxIdx) {
                         return {
                             questionNo: null,
@@ -27,10 +28,14 @@ const OMRSheet = ({ filters }) => {
                         correctAnswer: 'A',
                         optionMarked: null
                     }
-                })])
+                }));
             }
+            setQuestions(newQuestions)
         }
+
     }, [filters])
+
+    console.log(questions)
 
     return (
         <div className={styles.OMR_sheet}>
@@ -60,8 +65,8 @@ const OMRSheet = ({ filters }) => {
                                 {
                                     item.map((question, idx) => {
                                         const padTop = idx % filters.totalQuestionInOneSection === 0;
-                                        const padBottom = (idx + 1) % filters.totalQuestionInOneSection === 0 || (idx + 1) % filters.totalQuestionInOneColumn === 0;
-                                        const borderBottom = padBottom && (idx + 1) % filters.totalQuestionInOneColumn !== 0
+                                        const padBottom = (idx + 1) % filters.totalQuestionInOneSection === 0 || (idx + 1) % totalQnaInOneColumn === 0;
+                                        const borderBottom = padBottom && (idx + 1) % totalQnaInOneColumn !== 0
                                         const extraStyle = padTop ? styles.pad_top : padBottom ? styles.pad_bottom : "";
 
                                         return (
