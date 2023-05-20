@@ -1,12 +1,60 @@
 @import "@/assets/styles/variables";
 
 .Filter {
-  width: 100%;
   display: flex;
 
   .form {
     display: flex;
     gap: 2rem;
-    margin: 2rem auto;
+    flex-direction: column;
+    width: 26rem;
+    background: white;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem rgba($primary-pink, 0.1),
+      0 0 0.2rem rgba($primary-pink, 0.1);
+    height: max-content;
+    padding-bottom: 4rem;
+
+    .form_item {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .label {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: $neutral-300;
+      }
+
+      input {
+        border: 2px solid rgba($primary-pink, 0.4);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .print {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 0.5rem;
+      background: $primary-pink;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      letter-spacing: 0.1rem;
+
+      &:hover {
+        background: darken($primary-pink, 10%);
+      }
+    }
   }
 }

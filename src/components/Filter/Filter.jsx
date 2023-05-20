@@ -17,7 +17,7 @@ const Filter = ({ filters, setFilters, OMRref }) => {
         <div className={styles.Filter}>
             <div className={styles.form}>
                 <div className={styles.form_item}>
-                    <div>Total Questions</div>
+                    <div className={styles.label}>Total Questions</div>
                     <input type="number" value={filters.totalQuestion} onChange={(e) => setFilters((prev) => {
                         return {
                             ...prev,
@@ -26,7 +26,7 @@ const Filter = ({ filters, setFilters, OMRref }) => {
                     })} />
                 </div>
                 <div className={styles.form_item}>
-                    <div>Total Question in one column</div>
+                    <div className={styles.label}>Total Question in one column</div>
                     <input type="number" value={filters.totalQuestionInOneColumn} onChange={(e) => setFilters((prev) => {
                         return {
                             ...prev,
@@ -35,7 +35,7 @@ const Filter = ({ filters, setFilters, OMRref }) => {
                     })} />
                 </div>
                 <div className={styles.form_item}>
-                    <div>Total Question in one section</div>
+                    <div className={styles.label}>Total Question in one section</div>
                     <input type="number" value={filters.totalQuestionInOneSection} onChange={(e) => setFilters((prev) => {
                         return {
                             ...prev,
@@ -43,8 +43,8 @@ const Filter = ({ filters, setFilters, OMRref }) => {
                         }
                     })} />
                 </div>
-                <div className={styles.print}>
-                    <button onClick={printOMR}>Print</button>
+                <div className={styles.print} onClick={printOMR}>
+                    Print
                 </div>
             </div>
         </div>
