@@ -2,8 +2,16 @@
 
 import React from 'react'
 import styles from './Filter.module.scss';
+import { useReactToPrint } from 'react-to-print';
 
-const Filter = ({ filters, setFilters }) => {
+const Filter = ({ filters, setFilters, OMRref }) => {
+    const printOMR = useReactToPrint({
+        content: () => OMRref.current,
+        pageStyle: ` @page {
+            size: A4;
+            margin: 0;
+        }`
+    });
 
     return (
         <div className={styles.Filter}>
@@ -35,7 +43,9 @@ const Filter = ({ filters, setFilters }) => {
                         }
                     })} />
                 </div>
-
+                <div className={styles.print}>
+                    <button onClick={printOMR}>Print</button>
+                </div>
             </div>
         </div>
     )

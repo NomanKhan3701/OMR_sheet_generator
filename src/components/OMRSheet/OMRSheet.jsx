@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './OMRSheet.module.scss';
 
-const OMRSheet = ({ filters }) => {
+const OMRSheet = ({ filters, OMRref }) => {
     const [questions, setQuestions] = useState([])
     const totalQnaInOneColumn = parseInt(filters.totalQuestionInOneColumn) || 1
 
@@ -35,10 +35,8 @@ const OMRSheet = ({ filters }) => {
 
     }, [filters])
 
-    console.log(questions)
-
     return (
-        <div className={styles.OMR_sheet}>
+        <div className={styles.OMR_sheet} ref={OMRref}>
             <div className={styles.header}>
                 <div className={styles.header_item}>
                     <div className={styles.strong_txt}>

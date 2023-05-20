@@ -7,15 +7,22 @@
   --font-question: 1.2rem;
 
   width: max-content;
-  //   border: 2px solid red;
   margin: 0 auto;
+  padding-top: 4rem;
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    // border-bottom: 2px solid $primary-pink;
+    border: 2px solid $primary-pink;
+    margin-bottom: 2rem;
+
+    .strong_txt {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $primary-pink;
+    }
   }
 
   .test_container {
@@ -89,5 +96,27 @@
   }
 
   .footer {
+    display: flex;
+    gap: 4rem;
+
+    .signature {
+      min-width: 30rem;
+      flex: 1;
+      font-size: 1.4rem;
+      border: 2px solid $primary-pink;
+      display: flex;
+
+      .label {
+        padding: 1.6rem 1.4rem;
+        min-width: max-content;
+        font-weight: 500;
+        color: $primary-pink;
+      }
+
+      .input {
+        width: 100%;
+        border-left: 2px solid $primary-pink;
+      }
+    }
   }
 }
