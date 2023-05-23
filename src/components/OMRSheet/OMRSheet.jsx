@@ -36,7 +36,7 @@ const OMRSheet = ({ filters, OMRref }) => {
     }, [filters])
 
     return (
-        <div className={styles.OMR_sheet} ref={OMRref}>
+        <div className={styles.OMR_sheet} ref={OMRref} style={{ "--omr-color": "black" }}>
             <div className={styles.header}>
                 <div className={styles.header_item}>
                     <div className={styles.strong_txt}>
@@ -54,42 +54,52 @@ const OMRSheet = ({ filters, OMRref }) => {
                     </div>
                 </div>
             </div>
-            <div className={styles.test_container}>
-                {
-                    questions.map((item, qnaIdx) => {
+            <div className={styles.main_container}>
+                <div className={styles.border}></div>
+                <div className={styles.test_container}>
+                    <div className={styles.marker + " " + styles.tr}></div>
+                    <div className={styles.marker + " " + styles.tl}></div>
+                    <div className={styles.marker + " " + styles.bl}></div>
+                    <div className={styles.marker + " " + styles.br}></div>
+                    {
+                        questions.map((item, qnaIdx) => {
 
-                        return (
-                            <div className={styles.section} key={qnaIdx}>
-                                {
-                                    item.map((question, idx) => {
-                                        const padTop = idx % filters.totalQuestionInOneSection === 0;
-                                        const padBottom = (idx + 1) % filters.totalQuestionInOneSection === 0 || (idx + 1) % totalQnaInOneColumn === 0;
-                                        const borderBottom = padBottom && (idx + 1) % totalQnaInOneColumn !== 0
-                                        const extraStyle = padTop ? styles.pad_top : padBottom ? styles.pad_bottom : "";
+                            return (
+                                <div className={styles.section} key={qnaIdx}>
+                                    {
+                                        item.map((question, idx) => {
+                                            const padTop = idx % filters.totalQuestionInOneSection === 0;
+                                            const padBottom = (idx + 1) % filters.totalQuestionInOneSection === 0 || (idx + 1) % totalQnaInOneColumn === 0;
+                                            const borderBottom = padBottom && (idx + 1) % totalQnaInOneColumn !== 0
+                                            const extraStyle = padTop ? styles.pad_top : padBottom ? styles.pad_bottom : "";
 
-                                        return (
-                                            <div key={idx} className={styles.question + ` ${borderBottom ? styles.border_bottom : ""}`}>
-                                                <div className={styles.question_no + " " + extraStyle}>{question.questionNo}</div>
-                                                <div className={styles.options + " " + extraStyle}>
-                                                    {
-                                                        question.options.map((option, index) => {
-                                                            return (
-                                                                <div className={styles.option} key={index}>
-                                                                    <div className={styles.option_no}>{option}</div>
-                                                                </div>
-                                                            )
-                                                        })
-                                                    }
+                                            return (
+                                                <div key={idx} className={styles.question + ` ${borderBottom ? styles.border_bottom : ""}`}>
+                                                    <div className={styles.question_no + " " + extraStyle}>{question.questionNo}</div>
+                                                    <div className={styles.options + " " + extraStyle}>
+                                                        {
+                                                            question.options.map((option, index) => {
+                                                                return (
+                                                                    <div className={styles.option} key={index}>
+                                                                        <div className={styles.option_no}>{option}</div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        )
-                    })
-                }
+                                            )
+                                        })
+                                    }
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className={styles.border + " " + styles.right}></div>
             </div>
+
+
             <div className={styles.footer}>
                 <div className={styles.signature}>
                     <div className={styles.label}>
@@ -104,7 +114,7 @@ const OMRSheet = ({ filters, OMRref }) => {
                     <div className={styles.input}></div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

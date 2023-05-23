@@ -5,23 +5,101 @@
   --extra-padding: 0.8rem;
   --font-option: 1.1rem;
   --font-question: 1.2rem;
+  --border-width: 4rem;
 
   width: max-content;
   margin: 0 auto;
   padding-top: 2rem;
+  border: 1px solid red;
+
+  .main_container {
+    margin-top: 2rem;
+    display: flex;
+    padding: 4rem 2rem;
+    position: relative;
+
+    .border {
+      width: var(--border-width);
+      background-image: repeating-linear-gradient(
+        var(--omr-color),
+        var(--omr-color) 10px,
+        white 10px,
+        white 20px
+      );
+      margin-right: 5rem;
+
+      &.right {
+        margin-left: 5rem;
+        margin-right: 0;
+      }
+    }
+
+    .marker {
+      position: absolute;
+      border: 0.5rem solid var(--omr-color);
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+
+      &.tl {
+        top: 0;
+        left: var(--border-width);
+        transform: translateX(3rem);
+      }
+
+      &.tr {
+        top: 0;
+        right: var(--border-width);
+        transform: translateX(-3rem);
+      }
+
+      &.bl {
+        bottom: 2rem;
+        left: var(--border-width);
+        transform: translateX(3rem);
+      }
+
+      &.br {
+        bottom: 2rem;
+        right: var(--border-width);
+        transform: translateX(-3rem);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        border: 0.5rem solid var(--omr-color);
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        margin: 0.25rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        border: 0.5rem solid var(--omr-color);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        margin: 1rem;
+      }
+    }
+  }
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    border: 2px solid $primary-pink;
-    margin-bottom: 2rem;
+    border: 2px solid var(--omr-color);
+    margin-left: 11rem;
+    margin-right: 11rem;
 
     .strong_txt {
       font-size: 1.6rem;
       font-weight: 600;
-      color: $primary-pink;
+      color: var(--omr-color);
     }
   }
 
@@ -32,14 +110,14 @@
     margin-bottom: 2rem;
 
     .section {
-      border: 2px solid $primary-pink;
+      border: 2px solid var(--omr-color);
 
       .question {
         display: flex;
         font-weight: 500;
 
         &.border_bottom {
-          border-bottom: 2px solid $primary-pink;
+          border-bottom: 2px solid var(--omr-color);
         }
 
         .question_no {
@@ -47,7 +125,7 @@
           place-items: center;
           width: 2.5rem;
           height: 2rem;
-          border-right: 2px solid $primary-pink;
+          border-right: 2px solid var(--omr-color);
           height: var(--question-height);
           font-size: var(--font-question);
 
@@ -68,7 +146,7 @@
           padding: 0 1rem;
           gap: 1rem;
           height: var(--question-height);
-          color: $primary-pink;
+          color: var(--omr-color);
 
           &.pad_bottom {
             height: calc(var(--question-height) + var(--extra-padding));
@@ -83,7 +161,7 @@
           .option {
             width: 1.7rem;
             height: 1.7rem;
-            border: 2px solid $primary-pink;
+            border: 2px solid var(--omr-color);
             font-size: var(--font-option);
             display: grid;
             place-items: center;
@@ -98,24 +176,26 @@
   .footer {
     display: flex;
     gap: 4rem;
+    margin-left: 11rem;
+    margin-right: 11rem;
 
     .signature {
       min-width: 30rem;
       flex: 1;
       font-size: 1.4rem;
-      border: 2px solid $primary-pink;
+      border: 2px solid var(--omr-color);
       display: flex;
 
       .label {
         padding: 1.6rem 1.4rem;
         min-width: max-content;
         font-weight: 500;
-        color: $primary-pink;
+        color: var(--omr-color);
       }
 
       .input {
         width: 100%;
-        border-left: 2px solid $primary-pink;
+        border-left: 2px solid var(--omr-color);
       }
     }
   }
