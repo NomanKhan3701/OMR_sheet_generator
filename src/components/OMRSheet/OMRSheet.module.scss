@@ -17,6 +17,9 @@
     display: flex;
     padding: 4rem 2rem;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 
     .border {
       width: var(--border-width);
@@ -44,25 +47,25 @@
       &.tl {
         top: 0;
         left: var(--border-width);
-        transform: translateX(3rem);
+        transform: translateX(2rem);
       }
 
       &.tr {
         top: 0;
         right: var(--border-width);
-        transform: translateX(-3rem);
+        transform: translateX(-2rem);
       }
 
       &.bl {
         bottom: 2rem;
         left: var(--border-width);
-        transform: translateX(3rem);
+        transform: translateX(2rem);
       }
 
       &.br {
         bottom: 2rem;
         right: var(--border-width);
-        transform: translateX(-3rem);
+        transform: translateX(-2rem);
       }
 
       &::after {
@@ -93,8 +96,8 @@
     align-items: center;
     padding: 1rem 2rem;
     border: 2px solid var(--omr-color);
-    margin-left: 11rem;
-    margin-right: 11rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 
     .strong_txt {
       font-size: 1.6rem;
@@ -108,6 +111,7 @@
     justify-content: space-between;
     gap: 3rem;
     margin-bottom: 2rem;
+    width: 100%;
 
     .section {
       border: 2px solid var(--omr-color);
@@ -176,8 +180,8 @@
   .footer {
     display: flex;
     gap: 4rem;
-    margin-left: 11rem;
-    margin-right: 11rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 
     .signature {
       min-width: 30rem;
