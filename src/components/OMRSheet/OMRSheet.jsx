@@ -36,7 +36,7 @@ const OMRSheet = ({ filters, OMRref }) => {
     }, [filters])
 
     return (
-        <div className={styles.OMR_sheet} ref={OMRref} style={{ "--omr-color": "black" }}>
+        <div className={styles.OMR_sheet} ref={OMRref} style={{ "--omr-color": `${filters.color.value}` }}>
             <div className={styles.header}>
                 <div className={styles.header_item}>
                     <div className={styles.strong_txt}>

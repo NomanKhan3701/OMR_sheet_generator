@@ -3,6 +3,7 @@
 import React from 'react'
 import styles from './Filter.module.scss';
 import { useReactToPrint } from 'react-to-print';
+import ColorsDropdown from '../UI/ColorsDropdown/ColorsDropdown';
 
 const Filter = ({ filters, setFilters, OMRref }) => {
     const printOMR = useReactToPrint({
@@ -12,6 +13,8 @@ const Filter = ({ filters, setFilters, OMRref }) => {
             margin: 0;
         }`
     });
+
+
 
     return (
         <div className={styles.Filter}>
@@ -41,6 +44,13 @@ const Filter = ({ filters, setFilters, OMRref }) => {
                             ...prev,
                             totalQuestionInOneSection: e.target.value > 200 ? 200 : e.target.value
                         }
+                    })} />
+                </div>
+                <div className={styles.form_item}>
+                    <div className={styles.label}>Color of the OMR sheet</div>
+                    <ColorsDropdown value={filters.color} setValue={(item) => setFilters({
+                        ...filters,
+                        color: item
                     })} />
                 </div>
                 <div className={styles.print} onClick={printOMR}>

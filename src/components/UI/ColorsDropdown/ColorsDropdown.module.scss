@@ -1,0 +1,58 @@
+@import "@/assets/styles/variables";
+
+.Dropdown {
+  width: 100%;
+  position: relative;
+
+  .dropdown_select {
+    width: 100%;
+    height: 100%;
+    border: 2px solid $neutral-200;
+    border-radius: 0.6rem;
+    padding: 0.6rem 1rem;
+    color: $neutral-600;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  .options {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 0;
+    width: 100%;
+    background: $neutral-000;
+    box-shadow: $box-shadow-light;
+    border-radius: 0.6rem;
+    z-index: 1;
+    display: none;
+    max-height: 40rem;
+    overflow-y: auto;
+
+    @media screen and (max-width: $break-point-tab-lg) {
+      position: relative;
+      margin-top: 1rem;
+    }
+
+    &.show {
+      display: block;
+    }
+
+    .option {
+      padding: 0.6rem 1rem;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &.active {
+        background-color: $neutral-100;
+      }
+
+      &:hover {
+        background-color: $neutral-100;
+      }
+    }
+  }
+}
