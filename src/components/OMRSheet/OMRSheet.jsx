@@ -2,9 +2,25 @@
 
 import React, { useEffect, useState } from 'react'
 import styles from './OMRSheet.module.scss';
+import { getAlphabets, getNumbers } from '@/shared/utility';
 
 const OMRSheet = ({ filters, OMRref }) => {
     const [questions, setQuestions] = useState([])
+    const infoLength = {
+        name: 26,
+        rollNo: 10,
+        subject: 20,
+    };
+    const [user, setUser] = useState({
+        name: {
+            value: [...Array(infoLength.name).keys()],
+            alphabets: getAlphabets()
+        },
+        rollNo: {
+            value: [...Array(infoLength.rollNo).keys()],
+            alphabets: getNumbers()
+        },
+    })
     const totalQnaInOneColumn = parseInt(filters.totalQuestionInOneColumn) || 1
 
     useEffect(() => {
@@ -51,6 +67,75 @@ const OMRSheet = ({ filters, OMRref }) => {
                 <div className={styles.header_item}>
                     <div className={styles.strong_txt}>
                         Barcode
+                    </div>
+                </div>
+            </div>
+            <div className={styles.user_info}>
+                <div className={styles.left_container}>
+                    <div className={styles.title}>Student's Name (In block letters only)</div>
+                    <div className={styles.name}>
+                        {
+                            user.name.value.map((item, idx) => <div className={styles.box}></div>)
+                        }
+                    </div>
+                    <div className={styles.letters_container}>
+                        {
+                            user.name.value.map((item, idx) => {
+                                return <div className={styles.letters}>
+                                    {
+                                        user.name.alphabets.map((letter, index) => {
+                                            return (
+                                                <div className={styles.letter} key={`${letter}${index}`}>
+                                                    {letter}
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            })
+                        }
+                    </div>
+
+                </div>
+                <div className={styles.right_container}>
+                    <div className={styles.roll_container}>
+                        <div className={styles.title}>Roll Number</div>
+                        <div className={styles.roll_num}>
+                            {
+                                user.rollNo.value.map((item, idx) => <div className={styles.box}></div>)
+                            }
+                        </div>
+                        <div className={styles.letters_container}>
+                            {
+                                user.rollNo.value.map((item, idx) => {
+                                    return <div className={styles.letters}>
+                                        {
+                                            user.rollNo.alphabets.map((letter, index) => {
+                                                return (
+                                                    <div className={styles.letter} key={`${letter}${index}`}>
+                                                        {letter}
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className={styles.info_container}>
+                        <div className={styles.form_item}>
+                            <div className={styles.label}>Subject</div>
+                            <div className={styles.input}></div>
+                        </div>
+                        <div className={styles.form_item}>
+                            <div className={styles.label}>Batch</div>
+                            <div className={styles.input}></div>
+                        </div>
+                        <div className={styles.form_item}>
+                            <div className={styles.label}>Test Date</div>
+                            <div className={styles.input}></div>
+                        </div>
                     </div>
                 </div>
             </div>
