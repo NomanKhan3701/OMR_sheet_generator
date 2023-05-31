@@ -145,20 +145,14 @@ const OMRSheet = ({ filters, OMRref }) => {
                             <div className={styles.label}>Subject Code</div>
                             <div className={styles.input}></div>
                         </div>
-                        <div className={styles.instructions}>
+                        <div className={styles.instructions_container}>
                             <div className={styles.title}>Instructions</div>
-                            <div className={styles.instruction}>
-                                1. Use only blue or black ball point pen to fill the circles.
-                            </div>
-                            <div className={styles.instruction}>
-                                2. Circles should be dark and completely filled.
-                            </div>
-                            <div className={styles.instruction}>
-                                3. Cutting or erasing on the sheet is not allowed.
-                            </div>
-                            <div className={styles.instruction}>
-                                4. Do not use any stray marks on the sheet.
-                            </div>
+                            <ol className={styles.instructions}>
+                                <li>Use only blue or black ball point pen to fill the circles.</li>
+                                <li>Circles should be dark and completely filled.</li>
+                                <li>Cutting or erasing on the sheet is not allowed.</li>
+                                <li>Do not use any stray marks on the sheet.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
