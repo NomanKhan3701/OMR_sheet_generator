@@ -118,86 +118,22 @@
     margin-top: var(--mar);
     gap: 2rem;
 
-    .left_container {
-      border: 2px solid var(--omr-color);
+    --pd-container: 1rem;
+    --size: 1.45rem;
+    --gap: 0.5rem;
+    --mb: 0.3rem;
 
-      --pd-container: 1rem;
-      --size: 1.45rem;
-      --gap: 0.5rem;
+    .group_container {
+      display: flex;
+      gap: 2rem;
+      min-width: 100%;
 
-      .title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        font-size: 1.4rem;
-        font-weight: 500;
-        border-bottom: 2px solid var(--omr-color);
-
-        &::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          background: var(--omr-color);
-          opacity: 0.3;
-        }
-      }
-
-      .name {
-        display: flex;
-        padding: 0.2rem var(--pd-container);
-        gap: 0;
-
-        .box {
-          border: 2px solid var(--omr-color);
-          border-right: none;
-          width: calc(var(--size) + var(--gap));
-          height: 2rem;
-
-          &:last-child {
-            border-right: 2px solid var(--omr-color);
-          }
-        }
-      }
-
-      .letters_container {
-        display: flex;
-        gap: var(--gap);
-        padding: 0.4rem var(--pd-container);
-
-        .letters {
-          display: flex;
-          flex-direction: column;
-          gap: 0.3rem;
-
-          .letter {
-            height: var(--size);
-            width: var(--size);
-            display: grid;
-            place-items: center;
-            color: var(--omr-color);
-            border: 2px solid var(--omr-color);
-            border-radius: 50%;
-          }
-        }
-      }
-    }
-
-    .right_container {
-      width: 100%;
-      min-width: 25rem;
-
-      .roll_container {
+      .section_container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
         border: 2px solid var(--omr-color);
-
-        --pd-container: 1rem;
-        --size: 1.45rem;
-        --gap: 0.5rem;
 
         .title {
           display: flex;
@@ -208,6 +144,8 @@
           font-weight: 500;
           width: 100%;
           border-bottom: 2px solid var(--omr-color);
+          margin-bottom: var(--mb);
+          padding: 0 0.4rem;
 
           &::after {
             content: "";
@@ -220,13 +158,15 @@
           }
         }
 
-        .roll_num {
+        .value {
           display: flex;
           padding: 0.2rem var(--pd-container);
           gap: 0;
 
           .box {
-            border: 2px solid var(--omr-color);
+            border-top: 2px solid var(--omr-color);
+            border-bottom: 2px solid var(--omr-color);
+            border-left: 2px solid var(--omr-color);
             border-right: none;
             width: calc(var(--size) + var(--gap));
             height: 2rem;
@@ -259,30 +199,46 @@
           }
         }
       }
+    }
 
-      .info_container {
-        margin-top: 2rem;
-        border: 2px solid var(--omr-color);
-        padding: 1rem 0.3rem;
-        font-size: 1.1rem;
+    .info_container {
+      border: 2px solid var(--omr-color);
+      font-size: 1.1rem;
+      display: flex;
+      min-width: 25rem;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .form_item {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        gap: 0.2rem;
+        padding: 1rem 0.3rem;
 
-        .form_item {
-          display: flex;
-          gap: 0.2rem;
+        .label {
+          font-weight: 500;
+          min-width: max-content;
+        }
 
-          .label {
-            font-weight: 500;
-            min-width: max-content;
-          }
+        .input {
+          width: 100%;
+          border-bottom: 2px dotted var(--omr-color);
+          margin-bottom: 0.4rem;
+        }
+      }
 
-          .input {
-            width: 100%;
-            border-bottom: 2px dotted var(--omr-color);
-            margin-bottom: 0.4rem;
-          }
+      .instructions {
+        padding: 1rem 0.3rem;
+        border-top: 0.1rem solid var(--omr-color);
+
+        .title {
+          font-size: 1.4rem;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+
+        .instruction {
+          font-size: 1.1rem;
+          font-weight: 500;
         }
       }
     }

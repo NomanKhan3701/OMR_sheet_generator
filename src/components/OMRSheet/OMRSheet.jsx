@@ -10,16 +10,43 @@ const OMRSheet = ({ filters, OMRref }) => {
         name: 26,
         rollNo: 10,
         subject: 20,
+        section: 1,
+        class: 2,
+        subject: 15,
+        subjectCode: 5,
+        date: 10,
     };
     const [user, setUser] = useState({
         name: {
             value: [...Array(infoLength.name).keys()],
-            alphabets: getAlphabets()
+            characters: getAlphabets(),
+            title: "Student's Name (In block letters only)"
         },
         rollNo: {
             value: [...Array(infoLength.rollNo).keys()],
-            alphabets: getNumbers()
+            characters: getNumbers(),
+            title: "Roll Number"
         },
+        section: {
+            value: [...Array(infoLength.section).keys()],
+            characters: getAlphabets(10),
+            title: "Section"
+        },
+        class: {
+            value: [...Array(infoLength.class).keys()],
+            characters: getNumbers(),
+            title: "Class"
+        },
+        subject: {
+            value: [...Array(infoLength.subject).keys()],
+            characters: getAlphabets(),
+            title: "Subject"
+        },
+        date: {
+            value: [...Array(infoLength.date).keys()],
+            characters: getNumbers(),
+            title: "Date"
+        }
     })
     const totalQnaInOneColumn = parseInt(filters.totalQuestionInOneColumn) || 1
 
@@ -51,6 +78,35 @@ const OMRSheet = ({ filters, OMRref }) => {
 
     }, [filters])
 
+
+    const InputSection = ({ field }) => {
+        return <div className={styles.section_container}>
+            <div className={styles.title}>{field.title}</div>
+            <div className={styles.value}>
+                {
+                    field.value.map((item, idx) => <div className={styles.box} key={idx}></div>)
+                }
+            </div>
+            <div className={styles.letters_container}>
+                {
+                    field.value?.map((item, idx) => {
+                        return <div className={styles.letters} key={idx}>
+                            {
+                                field.characters.map((char, index) => {
+                                    return (
+                                        <div className={styles.letter} key={`${char}${index}`}>
+                                            {char}
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    })
+                }
+            </div>
+        </div>
+    }
+
     return (
         <div className={styles.OMR_sheet} ref={OMRref} style={{ "--omr-color": `${filters.color.value}` }}>
             <div className={styles.header}>
@@ -71,70 +127,38 @@ const OMRSheet = ({ filters, OMRref }) => {
                 </div>
             </div>
             <div className={styles.user_info}>
-                <div className={styles.left_container}>
-                    <div className={styles.title}>Student's Name (In block letters only)</div>
-                    <div className={styles.name}>
-                        {
-                            user.name.value.map((item, idx) => <div className={styles.box}></div>)
-                        }
-                    </div>
-                    <div className={styles.letters_container}>
-                        {
-                            user.name.value.map((item, idx) => {
-                                return <div className={styles.letters}>
-                                    {
-                                        user.name.alphabets.map((letter, index) => {
-                                            return (
-                                                <div className={styles.letter} key={`${letter}${index}`}>
-                                                    {letter}
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            })
-                        }
-                    </div>
-
+                <div className={styles.group_container}>
+                    <InputSection field={user.name} />
+                    <InputSection field={user.subject} />
                 </div>
-                <div className={styles.right_container}>
-                    <div className={styles.roll_container}>
-                        <div className={styles.title}>Roll Number</div>
-                        <div className={styles.roll_num}>
-                            {
-                                user.rollNo.value.map((item, idx) => <div className={styles.box}></div>)
-                            }
-                        </div>
-                        <div className={styles.letters_container}>
-                            {
-                                user.rollNo.value.map((item, idx) => {
-                                    return <div className={styles.letters}>
-                                        {
-                                            user.rollNo.alphabets.map((letter, index) => {
-                                                return (
-                                                    <div className={styles.letter} key={`${letter}${index}`}>
-                                                        {letter}
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                })
-                            }
-                        </div>
-                    </div>
+
+            </div>
+            <div className={styles.user_info}>
+                <div className={styles.group_container}>
+                    <InputSection field={user.section} />
+                    <InputSection field={user.rollNo} />
+                    <InputSection field={user.class} />
+                    <InputSection field={user.date} />
+
                     <div className={styles.info_container}>
                         <div className={styles.form_item}>
-                            <div className={styles.label}>Subject</div>
+                            <div className={styles.label}>Subject Code</div>
                             <div className={styles.input}></div>
                         </div>
-                        <div className={styles.form_item}>
-                            <div className={styles.label}>Batch</div>
-                            <div className={styles.input}></div>
-                        </div>
-                        <div className={styles.form_item}>
-                            <div className={styles.label}>Test Date</div>
-                            <div className={styles.input}></div>
+                        <div className={styles.instructions}>
+                            <div className={styles.title}>Instructions</div>
+                            <div className={styles.instruction}>
+                                1. Use only blue or black ball point pen to fill the circles.
+                            </div>
+                            <div className={styles.instruction}>
+                                2. Circles should be dark and completely filled.
+                            </div>
+                            <div className={styles.instruction}>
+                                3. Cutting or erasing on the sheet is not allowed.
+                            </div>
+                            <div className={styles.instruction}>
+                                4. Do not use any stray marks on the sheet.
+                            </div>
                         </div>
                     </div>
                 </div>
