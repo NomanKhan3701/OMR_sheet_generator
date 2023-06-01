@@ -126,81 +126,86 @@ const OMRSheet = ({ filters, OMRref }) => {
                     </div>
                 </div>
             </div>
-            <div className={styles.user_info}>
-                <div className={styles.group_container}>
-                    <InputSection field={user.name} />
-                    <InputSection field={user.subject} />
-                </div>
-
-            </div>
-            <div className={styles.user_info}>
-                <div className={styles.group_container}>
-                    <InputSection field={user.section} />
-                    <InputSection field={user.rollNo} />
-                    <InputSection field={user.class} />
-                    <InputSection field={user.date} />
-
-                    <div className={styles.info_container}>
-                        <div className={styles.form_item}>
-                            <div className={styles.label}>Subject Code</div>
-                            <div className={styles.input}></div>
+            <div className={styles.scanner_container}>
+                <div className={styles.border}></div>
+                <div className={styles.marker + " " + styles.tr}></div>
+                <div className={styles.marker + " " + styles.tl}></div>
+                <div className={styles.marker + " " + styles.bl}></div>
+                <div className={styles.marker + " " + styles.br}></div>
+                <div className={styles.middle_container}>
+                    <div className={styles.user_info}>
+                        <div className={styles.group_container}>
+                            <InputSection field={user.name} />
+                            <InputSection field={user.subject} />
                         </div>
-                        <div className={styles.instructions_container}>
-                            <div className={styles.title}>Instructions</div>
-                            <ol className={styles.instructions}>
-                                <li>Use only blue or black ball point pen to fill the circles.</li>
-                                <li>Circles should be dark and completely filled.</li>
-                                <li>Cutting or erasing on the sheet is not allowed.</li>
-                                <li>Do not use any stray marks on the sheet.</li>
-                            </ol>
+
+                    </div>
+                    <div className={styles.user_info}>
+                        <div className={styles.group_container}>
+                            <InputSection field={user.section} />
+                            <InputSection field={user.rollNo} />
+                            <InputSection field={user.class} />
+                            <InputSection field={user.date} />
+
+                            <div className={styles.info_container}>
+                                <div className={styles.form_item}>
+                                    <div className={styles.label}>Subject Code</div>
+                                    <div className={styles.input}></div>
+                                </div>
+                                <div className={styles.instructions_container}>
+                                    <div className={styles.title}>Instructions</div>
+                                    <ol className={styles.instructions}>
+                                        <li>Use only blue or black ball point pen to fill the circles.</li>
+                                        <li>Circles should be dark and completely filled.</li>
+                                        <li>Cutting or erasing on the sheet is not allowed.</li>
+                                        <li>Do not use any stray marks on the sheet.</li>
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className={styles.main_container}>
-                <div className={styles.border}></div>
-                <div className={styles.test_container}>
-                    <div className={styles.marker + " " + styles.tr}></div>
-                    <div className={styles.marker + " " + styles.tl}></div>
-                    <div className={styles.marker + " " + styles.bl}></div>
-                    <div className={styles.marker + " " + styles.br}></div>
-                    {
-                        questions.map((item, qnaIdx) => {
 
-                            return (
-                                <div className={styles.section} key={qnaIdx}>
-                                    {
-                                        item.map((question, idx) => {
-                                            const padTop = idx % filters.totalQuestionInOneSection === 0;
-                                            const padBottom = (idx + 1) % filters.totalQuestionInOneSection === 0 || (idx + 1) % totalQnaInOneColumn === 0;
-                                            const borderBottom = padBottom && (idx + 1) % totalQnaInOneColumn !== 0
-                                            const extraStyle = padTop ? styles.pad_top : padBottom ? styles.pad_bottom : "";
 
-                                            return (
-                                                <div key={idx} className={styles.question + ` ${borderBottom ? styles.border_bottom : ""}`}>
-                                                    <div className={styles.question_no + " " + extraStyle}>{question.questionNo}</div>
-                                                    <div className={styles.options + " " + extraStyle}>
-                                                        {
-                                                            question.options.map((option, index) => {
-                                                                return (
-                                                                    <div className={styles.option} key={index}>
-                                                                        <div className={styles.option_no}>{option}</div>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
+                    <div className={styles.test_container}>
+                        {
+                            questions.map((item, qnaIdx) => {
+
+                                return (
+                                    <div className={styles.section} key={qnaIdx}>
+                                        {
+                                            item.map((question, idx) => {
+                                                const padTop = idx % filters.totalQuestionInOneSection === 0;
+                                                const padBottom = (idx + 1) % filters.totalQuestionInOneSection === 0 || (idx + 1) % totalQnaInOneColumn === 0;
+                                                const borderBottom = padBottom && (idx + 1) % totalQnaInOneColumn !== 0
+                                                const extraStyle = padTop ? styles.pad_top : padBottom ? styles.pad_bottom : "";
+
+                                                return (
+                                                    <div key={idx} className={styles.question + ` ${borderBottom ? styles.border_bottom : ""}`}>
+                                                        <div className={styles.question_no + " " + extraStyle}>{question.questionNo}</div>
+                                                        <div className={styles.options + " " + extraStyle}>
+                                                            {
+                                                                question.options.map((option, index) => {
+                                                                    return (
+                                                                        <div className={styles.option} key={index}>
+                                                                            <div className={styles.option_no}>{option}</div>
+                                                                        </div>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            )
-                        })
-                    }
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
                 <div className={styles.border + " " + styles.right}></div>
             </div>
+
 
 
             <div className={styles.footer}>
