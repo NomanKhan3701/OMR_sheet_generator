@@ -7,7 +7,7 @@ import OMRSheet from '@/components/OMRSheet/OMRSheet';
 
 const OMRGeneratorPage = () => {
     const [filters, setFilters] = useState({
-        totalQuestion: 40,
+        totalQuestion: 30,
         totalQuestionInOneColumn: 8,
         totalQuestionInOneSection: 4,
         color: {

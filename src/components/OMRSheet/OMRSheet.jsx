@@ -15,6 +15,7 @@ const OMRSheet = ({ filters, OMRref }) => {
         subject: 15,
         subjectCode: 5,
         date: 10,
+        testId: 10
     };
     const [user, setUser] = useState({
         name: {
@@ -46,6 +47,11 @@ const OMRSheet = ({ filters, OMRref }) => {
             value: [...Array(infoLength.date).keys()],
             characters: getNumbers(),
             title: "Date"
+        },
+        testId: {
+            value: [...Array(infoLength.testId).keys()],
+            characters: getNumbers(),
+            title: "Test ID"
         }
     })
     const totalQnaInOneColumn = parseInt(filters.totalQuestionInOneColumn) || 1
@@ -135,23 +141,45 @@ const OMRSheet = ({ filters, OMRref }) => {
                 <div className={styles.middle_container}>
                     <div className={styles.user_info}>
                         <div className={styles.group_container}>
-                            <InputSection field={user.name} />
-                            <InputSection field={user.subject} />
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Student's Name:</div>
+                                <div className={styles.input}></div>
+                            </div>
+                            <div className={styles.form_item}>
+                                <div className={styles.label}>Subject:</div>
+                                <div className={styles.input}></div>
+                            </div>
                         </div>
-
+                    </div>
+                    <div className={styles.user_info}>
+                        <div className={styles.form_item}>
+                            <div className={styles.label}>Class:</div>
+                            <div className={styles.input}></div>
+                        </div>
+                        <div className={styles.form_item}>
+                            <div className={styles.label}>Section:</div>
+                            <div className={styles.input}></div>
+                        </div>
+                        <div className={styles.form_item}>
+                            <div className={styles.label}>Date (DD/MM/YYYY):</div>
+                            <div className={styles.value}>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                                <div className={styles.box}></div>
+                            </div>
+                        </div>
                     </div>
                     <div className={styles.user_info}>
                         <div className={styles.group_container}>
-                            <InputSection field={user.section} />
+                            <InputSection field={user.testId} />
                             <InputSection field={user.rollNo} />
-                            <InputSection field={user.class} />
-                            <InputSection field={user.date} />
 
                             <div className={styles.info_container}>
-                                <div className={styles.form_item}>
-                                    <div className={styles.label}>Subject Code</div>
-                                    <div className={styles.input}></div>
-                                </div>
                                 <div className={styles.instructions_container}>
                                     <div className={styles.title}>Instructions</div>
                                     <ol className={styles.instructions}>
