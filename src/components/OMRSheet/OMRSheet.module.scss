@@ -1,12 +1,13 @@
 @import "@/assets/styles/variables";
 
 .OMR_sheet {
-  --question-height: 2.6rem;
+  --question-height: 4rem;
   --extra-padding: 0.8rem;
-  --font-option: 1.1rem;
+  --font-option: 1.3rem;
   --font-question: 1.2rem;
   --border-width: 4rem;
   --padding-omr: 10rem;
+  --size-option: 2.8rem;
   --mar: 2rem;
 
   -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
@@ -18,6 +19,7 @@
   font-weight: 500;
   padding-left: 2rem;
   padding-right: 2rem;
+  overflow-x: auto;
 
   .scanner_container {
     display: flex;
@@ -117,8 +119,8 @@
     margin-top: var(--mar);
     gap: 2rem;
 
-    --pd-container: 1rem;
-    --size: 1.9rem;
+    --pd-container: 0rem;
+    --size: 2.4rem;
     --gap: 0.5rem;
     --mb: 0.3rem;
 
@@ -195,7 +197,7 @@
 
         .value {
           display: flex;
-          padding: 0.2rem var(--pd-container);
+          padding: 0.6rem var(--pd-container);
           gap: 0;
 
           .box {
@@ -216,11 +218,12 @@
           display: flex;
           gap: var(--gap);
           padding: 0.4rem var(--pd-container);
+          padding-bottom: 1rem;
 
           .letters {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.6rem;
 
             .letter {
               height: var(--size);
@@ -377,9 +380,9 @@
     display: flex;
     justify-content: space-between;
     gap: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 4rem;
 
     .section {
       border: 2px solid var(--omr-color);
@@ -431,8 +434,8 @@
           }
 
           .option {
-            width: 2rem;
-            height: 2rem;
+            width: var(--size-option);
+            height: var(--size-option);
             border: 2px solid var(--omr-color);
             font-size: var(--font-option);
             display: grid;
