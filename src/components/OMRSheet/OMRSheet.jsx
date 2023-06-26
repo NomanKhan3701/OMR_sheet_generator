@@ -105,7 +105,6 @@ const OMRSheet = ({ filters, OMRref }) => {
                         return <div className={styles.letters} key={idx}>
                             {
                                 field.characters.map((char, index) => {
-                                    console.log(values[index], char)
                                     return (
                                         <div className={styles.letter + ` ${values[idx] == char ? styles.active : ""}`} key={`${char}${index}`}>
                                             {char}
@@ -152,7 +151,7 @@ const OMRSheet = ({ filters, OMRref }) => {
                             <div className={styles.user_info}>
                                 <div className={styles.group_container}>
                                     <div className={styles.form_item}>
-                                        <div className={styles.label}>Student's Name:</div>
+                                        <div className={styles.label}>Student&apos;s Name:</div>
                                         <div className={styles.input}></div>
                                     </div>
                                     <div className={styles.form_item}>
