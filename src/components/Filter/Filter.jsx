@@ -37,37 +37,34 @@ const Filter = ({ filters, setFilters, OMRref }) => {
                         </div>
                     </div>
                 </div>
-                {
-                    filters.type?.toLowerCase() == "omr" && <>
-                        <div className={styles.form_item}>
-                            <div className={styles.label}>Total Questions</div>
-                            <input type="number" value={filters.totalQuestion} onChange={(e) => setFilters((prev) => {
-                                return {
-                                    ...prev,
-                                    totalQuestion: e.target.value > 1000 ? 1000 : e.target.value
-                                }
-                            })} />
-                        </div>
-                        <div className={styles.form_item}>
-                            <div className={styles.label}>Total Question in one column</div>
-                            <input type="number" value={filters.totalQuestionInOneColumn} onChange={(e) => setFilters((prev) => {
-                                return {
-                                    ...prev,
-                                    totalQuestionInOneColumn: e.target.value > 200 ? 200 : e.target.value
-                                }
-                            })} />
-                        </div>
-                        <div className={styles.form_item}>
-                            <div className={styles.label}>Total Question in one section</div>
-                            <input type="number" value={filters.totalQuestionInOneSection} onChange={(e) => setFilters((prev) => {
-                                return {
-                                    ...prev,
-                                    totalQuestionInOneSection: e.target.value > 200 ? 200 : e.target.value
-                                }
-                            })} />
-                        </div>
-                    </>
-                }
+                <div className={styles.form_item}>
+                    <div className={styles.label}>Total Questions</div>
+                    <input type="number" value={filters.totalQuestion} onChange={(e) => setFilters((prev) => {
+                        return {
+                            ...prev,
+                            totalQuestion: e.target.value > 1000 ? 1000 : e.target.value
+                        }
+                    })} />
+                </div>
+                <div className={styles.form_item}>
+                    <div className={styles.label}>Total Question in one column</div>
+                    <input type="number" value={filters.totalQuestionInOneColumn} onChange={(e) => setFilters((prev) => {
+                        return {
+                            ...prev,
+                            totalQuestionInOneColumn: e.target.value > 200 ? 200 : e.target.value
+                        }
+                    })} />
+                </div>
+                <div className={styles.form_item}>
+                    <div className={styles.label}>Total Question in one section</div>
+                    <input type="number" value={filters.totalQuestionInOneSection} onChange={(e) => setFilters((prev) => {
+                        return {
+                            ...prev,
+                            totalQuestionInOneSection: e.target.value > 200 ? 200 : e.target.value
+                        }
+                    })} />
+                </div>
+
                 <div className={styles.form_item}>
                     <div className={styles.label}>Color of the OMR sheet</div>
                     <ColorsDropdown value={filters.color} setValue={(item) => setFilters({

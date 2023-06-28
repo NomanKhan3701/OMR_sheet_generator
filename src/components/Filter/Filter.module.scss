@@ -2,6 +2,9 @@
 
 .Filter {
   display: flex;
+  position: sticky;
+  height: max-content;
+  top: 2rem;
 
   .form {
     display: flex;
@@ -11,6 +14,7 @@
     background: white;
     padding: 2rem;
     margin: 2rem;
+    margin-top: 0;
     border-radius: 1rem;
     box-shadow: 0 0 2rem rgba($primary-pink, 0.1),
       0 0 0.2rem rgba($primary-pink, 0.1);

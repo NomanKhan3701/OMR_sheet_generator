@@ -5,9 +5,11 @@ import useClickOutside from '@/hooks/useClickedOutside'
 const ColorsDropdown = ({ value, setValue }) => {
     const colors = [
         {
+            id: 1,
             name: "black",
             value: "black"
         }, {
+            id: 2,
             name: "pink",
             value: "#dd66b3"
         }
