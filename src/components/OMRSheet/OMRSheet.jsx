@@ -276,7 +276,8 @@ const OMRSheet = ({ filters, OMRref }) => {
 
                     {
                         filters.type == "LAST_PAGE" && (<div className={styles.no_scan_container} ref={lastSectionRef}>
-                            <HorizontalInputSection field={user.lastPage} values={"DONOTSCAN".split("")} />
+                            <HorizontalInputSection field={user.lastPage} />
+                            {/* <HorizontalInputSection field={user.lastPage} values={"DONOTSCAN".split("")} /> */}
                         </div>)
                     }
 
