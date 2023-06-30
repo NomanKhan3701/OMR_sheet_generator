@@ -58,7 +58,7 @@ const OMRSheet = ({ filters, OMRref }) => {
         lastPage: {
             value: [...Array(infoLength.lastPage).keys()],
             characters: getAlphabets(),
-            title: "Last Page (Do not write anything here)"
+            title: "DO NOT FILL (for administrative purposes)"
         },
     })
     const totalQnaInOneColumn = parseInt(filters.totalQuestionInOneColumn) || 1
