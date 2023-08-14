@@ -13,8 +13,8 @@ const OMRGeneratorPage = () => {
     totalQuestionInOneColumn: 8,
     totalQuestionInOneSection: 4,
     color: {
-      name: "pink",
-      value: "#dd66b3",
+      name: "black",
+      value: "black",
     },
   });
   const OMRref = useRef(null);
