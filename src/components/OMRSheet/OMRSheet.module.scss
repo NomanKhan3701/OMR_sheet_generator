@@ -234,6 +234,11 @@
               color: var(--omr-color);
               border: 2px solid var(--omr-color);
               border-radius: 50%;
+
+              &.active {
+                background: var(--omr-color) !important;
+                color: $neutral-000;
+              }
             }
           }
         }
@@ -368,7 +373,7 @@
           border-radius: 50%;
 
           &.active {
-            background: var(--omr-color);
+            background: var(--omr-color) !important;
             color: $neutral-000;
           }
         }

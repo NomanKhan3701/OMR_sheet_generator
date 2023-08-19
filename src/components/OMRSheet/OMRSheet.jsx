@@ -3,8 +3,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./OMRSheet.module.scss";
 import { getAlphabets, getNumbers } from "@/shared/utility";
+import { useRouter } from "next/router";
 
 const OMRSheet = ({ filters, OMRref }) => {
+  const router = useRouter();
   const [questions, setQuestions] = useState([]);
   const lastSectionRef = useRef(null);
   const infoLength = {
@@ -239,7 +241,12 @@ const OMRSheet = ({ filters, OMRref }) => {
           </div>
           <div className={styles.user_info}>
             <div className={styles.group_container}>
-              <InputSection field={user.testId} />
+              <InputSection
+                field={user.testId}
+                values={
+                  router.query.testId ? [...router.query.testId.split("")] : []
+                }
+              />
               <InputSection field={user.rollNo} />
 
               <div className={styles.info_container}>
@@ -304,7 +311,10 @@ const OMRSheet = ({ filters, OMRref }) => {
 
           {filters.type == "LAST_PAGE" && (
             <div className={styles.no_scan_container} ref={lastSectionRef}>
-              <HorizontalInputSection field={user.lastPage} />
+              <HorizontalInputSection
+                values={router.query.testId ? ["D", "O", "N", "O", "T", "F", "I", "L", "L"] : []}
+                field={user.lastPage}
+              />
               {/* <HorizontalInputSection field={user.lastPage} values={"DONOTSCAN".split("")} /> */}
             </div>
           )}
