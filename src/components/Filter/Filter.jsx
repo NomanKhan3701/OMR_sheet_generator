@@ -18,25 +18,45 @@ const Filter = ({ filters, setFilters, OMRref }) => {
     <div className={styles.Filter}>
       <div className={styles.form}>
         <div className={styles.form_item}>
-          {/* <div className={styles.group_types}>
-                        <div className={styles.type + ` ${filters.type?.toLowerCase() == "omr" ? styles.active : ""}`} onClick={() => setFilters((prev) => {
-                            return {
-                                ...prev,
-                                type: "OMR"
-                            }
-                        })}>
-                            <div className={styles.type_name}>OMR</div>
-                        </div>
-                        <div className={styles.type + ` ${filters.type?.toLowerCase() == "last_page" ? styles.active : ""}`} onClick={() => setFilters((prev) => {
-                            return {
-                                ...prev,
-                                type: "LAST_PAGE"
-                            }
-                        })}>
-                            <div className={styles.type_name}>Last Page</div>
-                        </div>
-                    </div> */}
-          <h2 className={styles.filter_title}>OMR sheet</h2>
+          <div className={styles.group_types}>
+            <div
+              className={
+                styles.type +
+                ` ${filters.type?.toLowerCase() == "omr" ? styles.active : ""}`
+              }
+              onClick={() =>
+                setFilters((prev) => {
+                  return {
+                    ...prev,
+                    type: "OMR",
+                  };
+                })
+              }
+            >
+              <div className={styles.type_name}>OMR</div>
+            </div>
+            <div
+              className={
+                styles.type +
+                ` ${
+                  filters.type?.toLowerCase() == "last_page"
+                    ? styles.active
+                    : ""
+                }`
+              }
+              onClick={() =>
+                setFilters((prev) => {
+                  return {
+                    ...prev,
+                    type: "LAST_PAGE",
+                  };
+                })
+              }
+            >
+              <div className={styles.type_name}>Last Page</div>
+            </div>
+          </div>
+          {/* <h2 className={styles.filter_title}>OMR sheet</h2> */}
         </div>
         <div className={styles.form_item}>
           <div className={styles.label}>Total Questions</div>

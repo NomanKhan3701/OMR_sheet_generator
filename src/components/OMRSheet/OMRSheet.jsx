@@ -244,7 +244,9 @@ const OMRSheet = ({ filters, OMRref }) => {
               <InputSection
                 field={user.testId}
                 values={
-                  router.query.testId ? [...router.query.testId.split("")] : []
+                  filters.type == "LAST_PAGE" && router.query.testId
+                    ? [...router.query.testId.split("")]
+                    : []
                 }
               />
               <InputSection field={user.rollNo} />
@@ -309,15 +311,17 @@ const OMRSheet = ({ filters, OMRref }) => {
             })}
           </div>
 
-          {filters.type == "LAST_PAGE" && (
-            <div className={styles.no_scan_container} ref={lastSectionRef}>
-              <HorizontalInputSection
-                values={router.query.testId ? ["D", "O", "N", "O", "T", "F", "I", "L", "L"] : []}
-                field={user.lastPage}
-              />
-              {/* <HorizontalInputSection field={user.lastPage} values={"DONOTSCAN".split("")} /> */}
-            </div>
-          )}
+          <div className={styles.no_scan_container} ref={lastSectionRef}>
+            <HorizontalInputSection
+              values={
+                filters.type == "LAST_PAGE"
+                  ? ["D", "O", "N", "O", "T", "F", "I", "L", "L"]
+                  : []
+              }
+              field={user.lastPage}
+            />
+            {/* <HorizontalInputSection field={user.lastPage} values={"DONOTSCAN".split("")} /> */}
+          </div>
         </div>
         <div className={styles.border + " " + styles.right}></div>
       </div>
